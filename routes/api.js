@@ -19,26 +19,60 @@ const router = express.Router();
 
 router.post("/generate", async (req, res) => {
   console.log(req.body);
-  const { location, occupation, change, gender, society, society2 } = req.body;
+  const {
+    location,
+    occupation,
+    change,
+    gender,
+    community,
+    business,
+    personal,
+    involvement,
+    style0,
+    artist0,
+    mood0,
+    architecturalStyle0,
+    color01,
+    color02,
+    medium3,
+    water,
+    power,
+    robots,
+  } = req.body;
   // return res.json({ message: "received" });
 
-  const prompt1 = `Create digital art of a ${gender} ${occupation} in ${location}, 20 years in the future. The image should show that ${change}. The image should be created in the style of Bauhaus.`;
+  const prompt1 = `Uplifting image of a ${gender} ${occupation} in ${location} focusing on ${change}, in the style of ${style0} ${artist0}.`;
 
-  const response = await openai.createImage({
-    prompt: prompt1,
-    n: 4,
-    size: "512x512",
-  });
-  const image_url0 = response.data.data[0].url;
-  const image_url1 = response.data.data[1].url;
-  const image_url2 = response.data.data[2].url;
-  const image_url3 = response.data.data[3].url;
-  console.log(image_url0);
+  const prompt2 = `A ${mood0}, high angle medium shot view of a ${occupation} in ${location} in tilt shift photography, focusing on ${community} with ${architecturalStyle0} buildings. Dominant colors are ${color01} and ${color02}.`;
+
+  const prompt3 = `An environmental rally ${medium3}, featuring iconic nature symbols, encouraging people to let go of ${personal} and get involved by ${involvement}, in the style of banksy and shepard fairey`;
+
+  const prompt4 = `A cinematic photograph interior 15mm wide angle lens 4k medium view autochrome photo of a ${power} powered factory with ${water} and robots that are ${robots}.`;
+
+  //const prompts = [prompt1, prompt2, prompt3,prompt4];
+  const prompts = [prompt4];
+  const responses = [];
+
+  for (const prompt of prompts) {
+    const response = await openai.createImage({
+      prompt: prompt,
+      n: 4,
+      size: "512x512",
+    });
+    responses.push(response);
+  }
+
+  const imageGroups = [];
+  for (const response of responses) {
+    const imageArray = [];
+    for (let i = 0; i < 4; i++) {
+      imageArray.push(response.data.data[i].url);
+    }
+    imageGroups.push(imageArray);
+  }
+
   return res.json({
-    image_url0,
-    image_url1,
-    image_url2,
-    image_url3,
+    imageGroups,
     message: "success",
   });
 

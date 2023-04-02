@@ -33,7 +33,19 @@
           <input type="text" id="society" name="society"> 
           <label for="society2">instead of</label> 
           <input type="text" id="society2" name="society2">
+          <label for="style0">If this were depicted by an artist, the style would be</label>
+          <select name="style0" id="style">
+            <option value="art deco">Art Deco</option>
+            <option value="Street Art">Street Art</option>
+            <option value="Renaissance">Renaissance</option>
+            <option value="Modern">Modern</option>
+            <option value="Surrealist">Surrealist</option>
+            <option value="Anime">Anime</option>
+          </select>
+          <label for="artist0">and the artist would be...</label>
+          <input type="text" id="artist0" name="artist0">
         </div>
+        <div class="form-group"></div>
         <div class="form-group">
           <label for="community">The biggest change in your community is...</label>
           <input type="text" id="community" name="community">
@@ -41,20 +53,35 @@
           <input type="text" id="politics" name="politics">
           <label for="business">The biggest change in business is...</label>
           <input type="text" id="business" name="business">
+          <label for="mood0">If you picture this, the mood is...</label>
+          <input type="text" name="mood0" id="mood0">
+          <label for="architecturalStyle0">the architectural style is...</label>
+          <input type="text" name="architecturalStyle0" id="architecturalStyle0">
+          <label for="color01">and the dominant colors are...</label>
+          <input type="text" name="color01" id="color1">
+          <label for="color02">and...</label>
+          <input type="text" name="color02" id="color2">
         </div>
         <div class="form-group">
           <label for="personal">One thing you had to let go of was...</label>
           <input type="text" id="personal" name="personal">
           <label for="involvement">You got involved by...</label>
           <input type="text" id="involvement" name="involvement">
+          <label for="medium3">If this were a grass roots movement, you'd get the message out with</label>
+          <select name="medium3" id="medium3">
+            <option value="mural spray painted on a wall">a graffitied wall</option>
+            <option value="wheat pasted on flyers">wheat pasted flyers</option>
+            <option value="advertised on a giant billboard">a giant billboard</option>
+            <option value="logo tattooed on skin in closeup">symbolic tattoos</option>
+          </select>
         </div>
 
         <div class="form-group">
-          <label for="water">Water comes from...</label>
+          <label for="water">In this future society, water comes from...</label>
           <input type="text" id="water" name="water">
           <label for="power">Power comes from...</label>
           <input type="text" id="power" name="power">
-          <label for="robots">What about the robots?</label>
+          <label for="robots">and robots are...</label>
           <input type="text" id="robots" name="robots">
         </div>
         <div class="form-group">
@@ -94,7 +121,20 @@
     </section>
     <section id="section-output" class="hidden">
       <div class="output-group">
+        <p class="instructions">Select an image:</p>
+        <div class="output-image-container" id="output-image0"></div>
+      </div>
+      <div class="output-group">
+        <p class="instructions">Select an image:</p>
         <div class="output-image-container" id="output-image1"></div>
+      </div>
+      <div class="output-group">
+        <p class="instructions">Select an image:</p>
+        <div class="output-image-container" id="output-image2"></div>
+      </div>
+      <div class="output-group">
+        <p class="instructions">Select an image:</p>
+        <div class="output-image-container" id="output-image3"></div>
       </div>
     </section>
   </main>

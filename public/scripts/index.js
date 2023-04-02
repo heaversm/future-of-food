@@ -8,6 +8,27 @@ const addEventListeners = () => {
   document.getElementById("submit").addEventListener("click", handleFormSubmit);
 };
 
+const createImageGroups = (imageGroups) => {
+  imageGroups.forEach((imageGroup, index) => {
+    const imageEls = [];
+    for (imageUrl of imageGroup) {
+      const imageEl = document.createElement("img");
+      imageEl.src = imageUrl;
+      imageEls.push(imageEl);
+      document.getElementById(`output-image${index}`).appendChild(imageEl);
+    }
+
+    for (image of imageEls) {
+      image.addEventListener("click", (e) => {
+        imageEls.forEach((unclickedImage) => {
+          unclickedImage.classList.toggle("hidden", true);
+          e.currentTarget.classList.toggle("hidden", false);
+        });
+      });
+    }
+  });
+};
+
 const handleFormSubmit = (e) => {
   e.preventDefault();
   const form = document.getElementById("form");
@@ -26,21 +47,32 @@ const handleFormSubmit = (e) => {
         document.getElementById("status").innerHTML = data.error;
       } else {
         hideForm(true);
-        console.log(data);
+        // console.log(data);
         document.getElementById("status").innerHTML = data.message;
         //create an image element with a src of data.image_url0
-        const imageEl0 = document.createElement("img");
-        imageEl0.src = data.image_url0;
-        document.getElementById("output-image1").appendChild(imageEl0);
-        const imageEl1 = document.createElement("img");
-        imageEl1.src = data.image_url1;
-        document.getElementById("output-image1").appendChild(imageEl1);
-        const imageEl2 = document.createElement("img");
-        imageEl2.src = data.image_url2;
-        document.getElementById("output-image1").appendChild(imageEl2);
-        const imageEl3 = document.createElement("img");
-        imageEl3.src = data.image_url3;
-        document.getElementById("output-image1").appendChild(imageEl3);
+        const imageGroups = createImageGroups(data.imageGroups);
+        // const image1El0 = document.createElement("img");
+        // image1El0.src = data.image1_url0;
+        // document.getElementById("output-image1").appendChild(image1El0);
+        // const image1El1 = document.createElement("img");
+        // image1El1.src = data.image1_url1;
+        // document.getElementById("output-image1").appendChild(image1El1);
+        // const image1El2 = document.createElement("img");
+        // image1El2.src = data.image1_url2;
+        // document.getElementById("output-image1").appendChild(image1El2);
+        // const image1El3 = document.createElement("img");
+        // image1El3.src = data.image1_url3;
+        // document.getElementById("output-image1").appendChild(image1El3);
+
+        // const image1Array = [image1El0, image1El1, image1El2, image1El3];
+        // for (img of image1Array) {
+        //   img.addEventListener("click", (e) => {
+        //     image1Array.forEach((img1) => {
+        //       img1.classList.toggle("hidden", true);
+        //       e.currentTarget.classList.toggle("hidden", false);
+        //     });
+        //   });
+        // }
       }
     })
     .catch((error) => {
@@ -67,9 +99,9 @@ const fetchOpenAI = (e) => {
     .then((res) => res.json())
     .then((data) => {
       console.log(data);
-      const imageEl = `<img src="${data.image_url}" />`;
-      //insert imageEl into document body
-      document.body.innerHTML = imageEl;
+      const image1El = `<img src="${data.image_url}" />`;
+      //insert image1El into document body
+      document.body.innerHTML = image1El;
     });
 };
 

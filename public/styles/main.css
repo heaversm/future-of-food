@@ -87,7 +87,7 @@ button[type="submit"] {
   flex-wrap: wrap;
 }
 
-.output-image image {
+.output-image-container img {
   width: 50%;
   height: auto;
 }
