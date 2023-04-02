@@ -17,15 +17,30 @@ const openai = new OpenAIApi(openAiConfiguration);
 
 const router = express.Router();
 
-router.get("/generate", async (req, res) => {
+router.post("/generate", async (req, res) => {
+  console.log(req.body);
+  const { location, occupation, change, gender, society, society2 } = req.body;
+  // return res.json({ message: "received" });
+
+  const prompt1 = `Create digital art of a ${gender} ${occupation} in ${location}, 20 years in the future. The image should show that ${change}. The image should be created in the style of Bauhaus.`;
+
   const response = await openai.createImage({
-    prompt: "a white siamese cat",
-    n: 1,
-    size: "1024x1024",
+    prompt: prompt1,
+    n: 4,
+    size: "512x512",
   });
-  const image_url = response.data.data[0].url;
-  console.log(image_url);
-  return res.json({ image_url });
+  const image_url0 = response.data.data[0].url;
+  const image_url1 = response.data.data[1].url;
+  const image_url2 = response.data.data[2].url;
+  const image_url3 = response.data.data[3].url;
+  console.log(image_url0);
+  return res.json({
+    image_url0,
+    image_url1,
+    image_url2,
+    image_url3,
+    message: "success",
+  });
 
   //console.log(req.body);
   //return res.json(req.body);

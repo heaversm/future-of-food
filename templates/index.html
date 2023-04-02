@@ -4,13 +4,99 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Food Future 2040</title>
+  <title>Future of Food 2040</title>
   <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
   <main>
-    <h1>Food Future 2040</h1>
-    
+    <h1>The Future of Food 2040</h1>
+    <p class="intro">Imagine it is the year 2040, and the world's food system has vastly improved to become more sustainable and adapt to our changing climate. Imagine your place in that future - where you are, your living situation, your community. How society, technology, and even food itself, has changed.</p>
+    <p class="instructions">Answer the following questions to create and visualize your 2040 Future of Food.</p>
+    <section id="section-form">
+      <form id="form">
+        <div class="form-group">
+          <label for="gender">Your gender is</label>
+          <select id="gender" name="gender">
+            <option value="female">Female</option>
+            <option value="male">Male</option>
+            <option value="non-binary">Non-binary</option>
+          </select>
+          <label for="location">You are in...</label>
+          <input type="text" id="location" name="location">
+          <label for="occupation">working as a...</label>
+          <input type="text" id="occupation" name="occupation">
+        </div>
+        <div class="form-group">
+          <label for="change">The biggest change is...</label>
+          <input type="text" id="change" name="change">
+          <label for="society">In order to make change happen, the most important thing society did as a whole was to...</label>
+          <input type="text" id="society" name="society"> 
+          <label for="society2">instead of</label> 
+          <input type="text" id="society2" name="society2">
+        </div>
+        <div class="form-group">
+          <label for="community">The biggest change in your community is...</label>
+          <input type="text" id="community" name="community">
+          <label for="politics">The biggest change in politics is...</label>
+          <input type="text" id="politics" name="politics">
+          <label for="business">The biggest change in business is...</label>
+          <input type="text" id="business" name="business">
+        </div>
+        <div class="form-group">
+          <label for="personal">One thing you had to let go of was...</label>
+          <input type="text" id="personal" name="personal">
+          <label for="involvement">You got involved by...</label>
+          <input type="text" id="involvement" name="involvement">
+        </div>
+
+        <div class="form-group">
+          <label for="water">Water comes from...</label>
+          <input type="text" id="water" name="water">
+          <label for="power">Power comes from...</label>
+          <input type="text" id="power" name="power">
+          <label for="robots">What about the robots?</label>
+          <input type="text" id="robots" name="robots">
+        </div>
+        <div class="form-group">
+          <label for="animal">An animal group that has benefited is...</label>
+          <input type="text" id="animal" name="animal">
+          <label for="animal2">because...</label>
+          <input type="text" id="animal2" name="animal2">
+        </div>
+        <div class="form-group">
+          <label for="market">Your favorite place to go for food is...</label>
+          <input type="text" id="market" name="market">
+          <label for="market2">because...</label>
+          <input type="text" id="market2" name="market2">
+          <label for="food">The weirdest food you've tried is...</label>
+          <input type="text" id="food" name="food">
+          <label for="preparation">which you make by...</label>
+          <input type="text" id="preparation" name="preparation">
+        </div>
+        <div class="form-group">
+          <label for="future">Something you're looking forward to in the next 20 years is...</label>
+          <input type="text" id="future" name="future">
+          <p>which will happen through three key factors:</p>
+          <label for="factor1">1:</label>
+          <input type="text" id="factor1" name="factor1">
+          <label for="factor2">2:</label>
+          <input type="text" id="factor2" name="factor2">
+          <label for="factor3">3:</label>
+          <input type="text" id="factor3" name="factor3">
+        </div>
+        <div class="form-group">
+         <button type="submit" id="submit">Submit</button>
+        </div>
+        <div class="form-group">
+          <p id="status"></p>
+        </div>
+      </form>
+    </section>
+    <section id="section-output" class="hidden">
+      <div class="output-group">
+        <div class="output-image-container" id="output-image1"></div>
+      </div>
+    </section>
   </main>
   <script src="scripts/index.js"></script>
 </body>

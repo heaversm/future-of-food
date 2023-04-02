@@ -1,0 +1,93 @@
+body {
+  font-family: system-ui, sans-serif;
+
+}
+
+main {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+section {
+  padding: 20px 0;
+  margin: 20px 0;
+  border-top: 1px solid #eee;
+}
+
+h1 {
+  text-align: center;
+}
+
+p {
+  line-height: 1.25em;
+}
+
+label,input {
+  display: block;
+}
+
+input {
+  width: 100%;
+}
+
+input,select {
+  margin-top: 10px;
+  padding: 5px 10px;
+}
+
+input + label, select+label {
+  margin-top: 10px;
+}
+
+button[type="submit"] {
+  /* create blue button */
+  background: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.error {
+  color: #f00;
+}
+
+.success {
+  color: #007bff;
+}
+
+.hidden {
+  display: none;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.form-group, .output-group {
+  padding: 20px 0;
+  margin: 10px 0;
+}
+
+.form-group {
+  border-top: 1px solid #cecece;
+}
+
+.instructions {
+  /* font-size: 0.8em; */
+  font-style: italic;
+  color: #999;
+  padding: 0;
+}
+
+.output-image-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.output-image image {
+  width: 50%;
+  height: auto;
+}
