@@ -9,21 +9,24 @@
 </head>
 <body>
   <main>
-    <h1>The Future of Food 2040</h1>
-    <p class="intro">Imagine it is the year 2040, and the world's food system has vastly improved to become more sustainable and adapt to our changing climate. Imagine your place in that future - where you are, your living situation, your community. How society, technology, and even food itself, has changed.</p>
-    <p class="instructions">Answer the following questions to create and visualize your 2040 Future of Food.</p>
-    <nav id="form-group-nav">
-      <button class="form-group-button active" data-id="0">1</button>
-      <button class="form-group-button" data-id="1">2</button>
-      <button class="form-group-button" data-id="2">3</button>
-      <button class="form-group-button" data-id="3">4</button>
-      <button class="form-group-button" data-id="4">5</button>
-      <button class="form-group-button" data-id="5">6</button>
-      <button class="form-group-button" data-id="6">7</button>
-      <button class="form-group-button" data-id="7">8</button>
-      <button class="form-group-button" data-id="8">9</button>
-    </nav>
+    <section id="section-intro" class="text-center">
+      <h1>The Future of Food 2040</h1>
+      <p class="intro">Imagine it is the year 2040, and the world's food system has vastly improved to become more sustainable and adapt to our changing climate. Imagine your place in that future - where you are, your living situation, your community. How society, technology, and even food itself, has changed.</p>
+      <p class="instructions">Answer the following questions to create and visualize your 2040 Future of Food.</p>
+    </section>
+    
     <section id="section-form">
+      <nav id="form-group-nav" class="text-center">
+        <button class="form-group-button active" data-id="0">1</button>
+        <button class="form-group-button" data-id="1">2</button>
+        <button class="form-group-button" data-id="2">3</button>
+        <button class="form-group-button" data-id="3">4</button>
+        <button class="form-group-button" data-id="4">5</button>
+        <button class="form-group-button" data-id="5">6</button>
+        <button class="form-group-button" data-id="6">7</button>
+        <button class="form-group-button" data-id="7">8</button>
+        <button class="form-group-button" data-id="8">9</button>
+      </nav>
       <form id="form">
         <div class="form-group" data-id="0">
           <label for="gender">Your gender is</label>
@@ -32,6 +35,8 @@
             <option value="male">Male</option>
             <option value="non-binary">Non-binary</option>
           </select>
+          <label for="ethnicity">and your ethnicity is...</label>
+          <input type="text" id="ethnicity" name="ethnicity">
           <label for="location">You are in...</label>
           <input type="text" id="location" name="location">
           <label for="occupation">working as a...</label>
@@ -47,12 +52,15 @@
           <input type="text" id="society2" name="society2">
           <label for="style0">If this vision of the future were depicted by an artist, the style would be</label>
           <select name="style0" id="style">
-            <option value="art deco">Art Deco</option>
+            <option value="Art Deco">Art Deco</option>
             <option value="Street Art">Street Art</option>
             <option value="Renaissance">Renaissance</option>
             <option value="Modern">Modern</option>
             <option value="Surrealist">Surrealist</option>
             <option value="Anime">Anime</option>
+            <option value="Techno-Futurist">Techno-Futurist</option>
+            <option value="Claymation">Claymation</option>
+            <option value="Ballpoint-Pen Art">Ballpoint Pen</option>
           </select>
           <label for="artist0">and the artist would be...</label>
           <input type="text" id="artist0" name="artist0">
@@ -67,7 +75,7 @@
           <input type="text" id="business" name="business">
           <label for="mood0">If you picture this, the mood is...</label>
           <input type="text" name="mood0" id="mood0">
-          <label for="architecturalStyle0">the architectural style is...</label>
+          <label for="architecturalStyle0">the architectural style in the community is...</label>
           <input type="text" name="architecturalStyle0" id="architecturalStyle0">
           <label for="color01">and the dominant colors are...</label>
           <input type="text" name="color01" id="color1">
@@ -82,6 +90,7 @@
           <input type="text" id="involvement" name="involvement">
           <label for="medium3">If this were a grass roots movement, you'd get the message out with</label>
           <select name="medium3" id="medium3">
+            <option value="talking to other people in the community">word of mouth</option>
             <option value="mural spray painted on a wall">a graffitied wall</option>
             <option value="wheat pasted on flyers">wheat pasted flyers</option>
             <option value="advertised on a giant billboard">a giant billboard</option>
@@ -129,7 +138,7 @@
           <input type="text" id="factor2" name="factor2">
           <label for="factor3">3:</label>
           <input type="text" id="factor3" name="factor3">
-          <label for="media">The a movie, tv show, comic book, or artwork that best captures this feeling of this future is...</label>
+          <label for="media">The movie, tv show, comic book, or artwork that best captures this feeling of this future is...</label>
           <input type="text" name="media" id="media">
           <button class="next">Next</button>
         </div>
@@ -147,39 +156,60 @@
     </section>
     <section id="section-output" class="hidden">
       <div class="output-group">
-        <div class="output-story-container" id="output-story0"></div>
+        
         <p class="instructions">Select an image:</p>
-        <div class="output-image-container" id="output-image0"></div>
+        <div class="output-container">
+          <div class="output-image-container" id="output-image0"></div>
+          <div class="output-story-container" id="output-story0"></div>
+        </div>
       </div>
       <div class="output-group">
-        <div class="output-story-container" id="output-story1"></div>
+        
         <p class="instructions">Select an image:</p>
-        <div class="output-image-container" id="output-image1"></div>
+        <div class="output-container">
+          <div class="output-image-container" id="output-image1"></div>
+          <div class="output-story-container" id="output-story1"></div>
+        </div>
       </div>
       <div class="output-group">
-        <div class="output-story-container" id="output-story2"></div>
+        
         <p class="instructions">Select an image:</p>
-        <div class="output-image-container" id="output-image2"></div>
+        <div class="output-container">
+          <div class="output-image-container" id="output-image2"></div>
+          <div class="output-story-container" id="output-story2"></div>
+        </div>
       </div>
       <div class="output-group">
-        <div class="output-story-container" id="output-story3"></div>
+        
         <p class="instructions">Select an image:</p>
-        <div class="output-image-container" id="output-image3"></div>
+        <div class="output-container">
+          <div class="output-image-container" id="output-image3"></div>
+          <div class="output-story-container" id="output-story3"></div>
+        </div>
       </div>
       <div class="output-group">
-        <div class="output-story-container" id="output-story4"></div>
+        
         <p class="instructions">Select an image:</p>
-        <div class="output-image-container" id="output-image4"></div>
+        <div class="output-container">
+          <div class="output-image-container" id="output-image4"></div>
+          <div class="output-story-container" id="output-story4"></div>
+        </div>
       </div>
       <div class="output-group">
-        <div class="output-story-container" id="output-story5"></div>
+        
         <p class="instructions">Select an image:</p>
-        <div class="output-image-container" id="output-image5"></div>
+        <div class="output-container">
+          <div class="output-image-container" id="output-image5"></div>
+          <div class="output-story-container" id="output-story5"></div>
+        </div>
       </div>
       <div class="output-group">
-        <div class="output-story-container" id="output-story6"></div>
+        
         <p class="instructions">Select an image:</p>
-        <div class="output-image-container" id="output-image6"></div>
+        <div class="output-container">
+          <div class="output-image-container" id="output-image6"></div>
+          <div class="output-story-container" id="output-story6"></div>
+        </div>
       </div>
     </section>
   </main>

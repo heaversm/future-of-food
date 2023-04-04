@@ -24,6 +24,7 @@ router.post("/generate", async (req, res) => {
     occupation,
     change,
     gender,
+    ethnicity,
     community,
     politics,
     business,
@@ -56,11 +57,11 @@ router.post("/generate", async (req, res) => {
   } = req.body;
   // return res.json({ message: "received" });
 
-  const prompt1 = `Uplifting image of a ${gender} ${occupation} in ${location} focusing on ${change}, in the style of ${style0} ${artist0}.`;
+  const prompt1 = `Uplifting image of a ${ethnicity} ${gender} ${occupation} in ${location} focusing on ${change}, in the style of ${style0} ${artist0}.`;
 
   const story1 = `It's the year 2040, and we're in ${location}. Food and agriculture has changed a lot in the last 20 years. The biggest change is ${change}. I'm working as a ${occupation}. Rewrite the previous two sentences as an uplifting intro to an award winning novel in the style of ${storytellerProfession} ${storyteller}, in first-person voice. Limit your response to one paragraph of less than 250 words.`;
 
-  const prompt2 = `A ${mood0}, high angle medium shot view of a ${occupation} in ${location} in tilt shift photography, focusing on ${community} with ${architecturalStyle0} housing. Dominant colors are ${color01} and ${color02}.`;
+  const prompt2 = `A ${mood0}, high angle medium shot view of a ${occupation} in ${location} with lots of trees, plants, and water in tilt shift nature photography , focusing on ${community} with ${architecturalStyle0} housing. Dominant colors are ${color01} and ${color02}`;
 
   const story2 = `In my community, ${community}. Politically, ${politics}, and on the business side of things, ${business}. Rewrite this with a ${mood0} mood, in the style of ${storytellerProfession} ${storyteller}, in first-person voice. Limit your response to one paragraph of less than 250 words.`;
 
@@ -72,7 +73,7 @@ router.post("/generate", async (req, res) => {
 
   const story4 = `We're making great progress on clean energy too. We're using ${power} to power our factories, and our water comes from ${water}. As for the robots, ${robots}. Rewrite this in the style of ${storytellerProfession} ${storyteller}, in first-person voice. Limit your response to one paragraph of less than 250 words.}`;
 
-  const prompt5 = `An adorable closeup screenshot from avatar the last airbender of a ${animal1} that can ${animal3}`;
+  const prompt5 = `An adorable cinematic movie photograph from avatar the last airbender of a ${animal1} that can ${animal3}`;
 
   const story5 = `The ${animal1} love it because ${animal2}, so now they can ${animal3}. Rewrite this in the style of ${storytellerProfession} ${storyteller}, in first-person voice. Limit your response to one paragraph of less than 250 words.`;
 
@@ -80,7 +81,7 @@ router.post("/generate", async (req, res) => {
 
   const story6 = `But on to my favorite topic, food. My favorite place to go is ${market} because ${market2}. The weirdest food I've tried is ${food}, which you make by ${preparation}. Rewrite this in the style of ${storytellerProfession} ${storyteller}, in first-person voice. Limit your response to one paragraph of less than 250 words.`;
 
-  const prompt7 = `A film still from ${media} of ${future}.`;
+  const prompt7 = `An inspiring cinematic movie photograph from ${media} of ${future} .`;
 
   const story7 = `When I think about the future, the thing I most hope for is ${future}. We can make it happen if ${factor1}, ${factor2}, and ${factor3}. Rewrite this as the conclusion to a story, in the style of ${storytellerProfession} ${storyteller}, in first-person voice. Limit your response to one paragraph of less than 250 words.}`;
 

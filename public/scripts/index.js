@@ -80,10 +80,14 @@ const createImageGroups = (imageGroups) => {
 
     for (image of imageEls) {
       image.addEventListener("click", (e) => {
+        const currentImage = e.currentTarget;
         imageEls.forEach((unclickedImage) => {
           unclickedImage.classList.toggle("hidden", true);
-          e.currentTarget.classList.toggle("hidden", false);
+          currentImage.classList.toggle("hidden", false);
         });
+        const instructionEl =
+          currentImage.closest(".output-group").firstElementChild;
+        instructionEl.classList.toggle("hidden", true);
       });
     }
   });
