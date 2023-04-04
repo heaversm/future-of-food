@@ -1,6 +1,9 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: system-ui, sans-serif;
-
 }
 
 main {
@@ -108,10 +111,10 @@ button#submit {
 
 .output-story-container {
   width: 75%;
-  margin: 40px auto 0 auto;
+  margin: 40px auto;
   font-style: italic;
-  padding-top: 40px;
-  border-top: 1px solid #eee;
+  padding-bottom: 40px;
+  border-bottom: 1px solid #eee;
   text-align: center;
 }
 
