@@ -47,10 +47,20 @@ const gotoNextSection = (currentID) => {
       console.log("end");
     }
   }
+
+  const doSubmit = currentSection.dataset.submit === "false" ? false : true;
+  if (doSubmit) {
+    const curForm = currentSection.closest("form");
+    console.log(curForm);
+    handleFormSubmit(curForm);
+  }
 };
 
 const addEventListeners = () => {
-  document.getElementById("submit").addEventListener("click", handleFormSubmit);
+  document.getElementById("submit").addEventListener("click", (e) => {
+    e.preventDefault();
+    handleFormSubmit(e.target.closest(".prompt-form"), true);
+  });
   const nextButtons = document.querySelectorAll(".next");
   nextButtons.forEach((nextButton) => {
     nextButton.addEventListener("click", (e) => {
@@ -68,51 +78,47 @@ const addEventListeners = () => {
   });
 };
 
-const createImageGroups = (imageGroups) => {
-  imageGroups.forEach((imageGroup, index) => {
-    const imageEls = [];
-    for (imageUrl of imageGroup) {
-      const imageEl = document.createElement("img");
-      imageEl.src = imageUrl;
-      imageEls.push(imageEl);
-      document.getElementById(`output-image${index}`).appendChild(imageEl);
-    }
+const createImageGroup = (imageGroup, index) => {
+  const imageEls = [];
+  for (imageUrl of imageGroup) {
+    const imageEl = document.createElement("img");
+    imageEl.src = imageUrl;
+    imageEls.push(imageEl);
+    document.getElementById(`output-image${index}`).appendChild(imageEl);
+  }
 
-    for (image of imageEls) {
-      image.addEventListener("click", (e) => {
-        const currentImage = e.currentTarget;
-        imageEls.forEach((unclickedImage) => {
-          unclickedImage.classList.toggle("hidden", true);
-          currentImage.classList.toggle("hidden", false);
-        });
-        const instructionEl =
-          currentImage.closest(".output-group").firstElementChild;
-        instructionEl.classList.toggle("hidden", true);
+  for (image of imageEls) {
+    image.addEventListener("click", (e) => {
+      const currentImage = e.currentTarget;
+      imageEls.forEach((unclickedImage) => {
+        unclickedImage.classList.toggle("hidden", true);
+        currentImage.classList.toggle("hidden", false);
       });
-    }
-  });
+      const instructionEl =
+        currentImage.closest(".output-group").firstElementChild;
+      instructionEl.classList.toggle("hidden", true);
+    });
+  }
 };
 
-const createStories = (stories) => {
-  stories.forEach((story, index) => {
-    // const storyEl = document.createElement("p");
-    // storyEl.innerHTML = story;
-    // document.getElementById(`output-story${index}`).appendChild(storyEl);
-    document.getElementById(`output-story${index}`).innerText = story;
-  });
+const createStory = (story, index) => {
+  document.getElementById(`output-story${index}`).innerText = story;
 };
 
-const handleFormSubmit = (e) => {
-  e.preventDefault();
-  const form = document.getElementById("form");
-  const formData = new URLSearchParams(new FormData(form));
-  // console.log(formData);
+const handleFormSubmit = (form, isFinal = false) => {
+  //const form = document.getElementById("form");
+  console.log(form);
+  const formData = new FormData(form);
+  const formID = form.dataset.id;
+  formData.append("formID", formID);
+  const formBody = new URLSearchParams(formData);
+
   document.getElementById("status").innerHTML =
     "Generating the future takes a while. Please be patient...";
 
   fetch("api/generate", {
     method: "POST",
-    body: formData,
+    body: formBody,
   })
     .then((res) => res.json())
     .then((data) => {
@@ -120,11 +126,15 @@ const handleFormSubmit = (e) => {
         console.log(data.error);
         document.getElementById("status").innerHTML = data.error;
       } else {
-        hideForm(true);
-        // console.log(data);
-        document.getElementById("status").innerHTML = data.message;
-        const imageGroups = createImageGroups(data.imageGroups);
-        const stories = createStories(data.storyCompletions);
+        //hideForm(true);
+        console.log(data);
+        const { imageArray, storyResponse, formID, message } = data;
+        document.getElementById("status").innerHTML = message;
+        const imageGroup = createImageGroup(imageArray, formID);
+        const story = createStory(storyResponse, formID);
+        if (isFinal) {
+          hideForm(true);
+        }
       }
     })
     .catch((error) => {

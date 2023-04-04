@@ -25,10 +25,9 @@
         <button class="form-group-button" data-id="5">6</button>
         <button class="form-group-button" data-id="6">7</button>
         <button class="form-group-button" data-id="7">8</button>
-        <button class="form-group-button" data-id="8">9</button>
       </nav>
-      <form id="form">
-        <div class="form-group" data-id="0">
+      <form class="prompt-form" data-id="0">
+        <div class="form-group" data-id="0" data-submit="false">
           <label for="gender">Your gender is</label>
           <select id="gender" name="gender">
             <option value="female">Female</option>
@@ -41,6 +40,10 @@
           <input type="text" id="location" name="location">
           <label for="occupation">working as a...</label>
           <input type="text" id="occupation" name="occupation">
+          <label for="storyteller">If a famous person could tell the story of your future, it would be...</label>
+          <input type="text" id="storyteller" name="storyteller">
+          <label for="storytellerProfession">who works as a ...</label>
+          <input type="text" id="storytellerProfession" name="storytellerProfession">
           <button class="next">Next</button>
         </div>
         <div class="form-group hidden" data-id="1">
@@ -66,6 +69,8 @@
           <input type="text" id="artist0" name="artist0">
           <button class="next">Next</button>
         </div>
+      </form>
+      <form class="prompt-form" data-id="1">
         <div class="form-group hidden" data-id="2">
           <label for="community">The biggest change in your community is...</label>
           <input type="text" id="community" name="community">
@@ -83,6 +88,8 @@
           <input type="text" name="color02" id="color2">
           <button class="next">Next</button>
         </div>
+      </form>
+      <form class="prompt-form" data-id="2">
         <div class="form-group hidden" data-id="3">
           <label for="personal">One thing you had to let go of was...</label>
           <input type="text" id="personal" name="personal">
@@ -98,7 +105,8 @@
           </select><br/>
           <button class="next">Next</button>
         </div>
-
+      </form>
+      <form class="prompt-form" data-id="3">
         <div class="form-group hidden" data-id="4">
           <label for="water">In this future society, water comes from...</label>
           <input type="text" id="water" name="water">
@@ -108,6 +116,8 @@
           <input type="text" id="robots" name="robots">
           <button class="next">Next</button>
         </div>
+      </form>
+      <form class="prompt-form" data-id="4">
         <div class="form-group hidden" data-id="5">
           <label for="animal1">An animal group that has benefited is the ...</label>
           <input type="text" id="animal1" name="animal1">
@@ -117,6 +127,8 @@
           <input type="text" id="animal3" name="animal3">
           <button class="next">Next</button>
         </div>
+      </form>
+      <form class="prompt-form" data-id="5">
         <div class="form-group hidden" data-id="6">
           <label for="market">Your favorite place to go for food is...</label>
           <input type="text" id="market" name="market">
@@ -128,6 +140,8 @@
           <input type="text" id="preparation" name="preparation">
           <button class="next">Next</button>
         </div>
+      </form>
+      <form class="prompt-form" data-id="6">
         <div class="form-group hidden" data-id="7">
           <label for="future">Something you're looking forward to in the next 20 years is...</label>
           <input type="text" id="future" name="future">
@@ -140,19 +154,12 @@
           <input type="text" id="factor3" name="factor3">
           <label for="media">The movie, tv show, comic book, or artwork that best captures this feeling of this future is...</label>
           <input type="text" name="media" id="media">
-          <button class="next">Next</button>
-        </div>
-        <div class="form-group hidden" data-id="8">
-          <label for="storyteller">If a famous person could tell the story of your future, it would be...</label>
-          <input type="text" id="storyteller" name="storyteller">
-          <label for="storytellerProfession">who works as a ...</label>
-          <input type="text" id="storytellerProfession" name="storytellerProfession">
           <button type="submit" id="submit">Submit</button>
         </div>
-        <div class="form-group">
-          <p id="status"></p>
-        </div>
       </form>
+      <div class="form-group">
+        <p id="status"></p>
+      </div>
     </section>
     <section id="section-output" class="hidden">
       <div class="output-group">
@@ -210,6 +217,10 @@
           <div class="output-image-container" id="output-image6"></div>
           <div class="output-story-container" id="output-story6"></div>
         </div>
+      </div>
+      <div class="output-container">
+        <h2>Congratulations!</h2>
+        <p>Your climate future has been imagined. What are the next steps toward making it happen? Go do it!</p>
       </div>
     </section>
   </main>
