@@ -25,6 +25,7 @@ router.post("/generate", async (req, res) => {
     change,
     gender,
     community,
+    politics,
     business,
     personal,
     involvement,
@@ -43,27 +44,46 @@ router.post("/generate", async (req, res) => {
     animal3,
     food,
     market,
+    market2,
     preparation,
     media,
     future,
+    factor1,
+    factor2,
+    factor3,
+    storyteller,
+    storytellerProfession,
   } = req.body;
   // return res.json({ message: "received" });
 
   const prompt1 = `Uplifting image of a ${gender} ${occupation} in ${location} focusing on ${change}, in the style of ${style0} ${artist0}.`;
 
+  const story1 = `It's the year 2040, and we're in ${location}. Food and agriculture has changed a lot in the last 20 years. The biggest change is ${change}. I'm working as a ${occupation}. Rewrite the previous two sentences as an uplifting intro to an award winning novel in the style of ${storytellerProfession} ${storyteller}, in first-person voice. Limit your response to one paragraph of less than 250 words.`;
+
   const prompt2 = `A ${mood0}, high angle medium shot view of a ${occupation} in ${location} in tilt shift photography, focusing on ${community} with ${architecturalStyle0} housing. Dominant colors are ${color01} and ${color02}.`;
+
+  const story2 = `In my community, ${community}. Politically, ${politics}, and on the business side of things, ${business}. Rewrite this with a ${mood0} mood, in the style of ${storytellerProfession} ${storyteller}, in first-person voice. Limit your response to one paragraph of less than 250 words.`;
 
   const prompt3 = `An environmental rally ${medium3}, featuring iconic nature symbols, encouraging people to let go of ${personal} and get involved by ${involvement}, in the style of banksy and soviet propaganda art`;
 
+  const story3 = `I did have to give up ${personal}, but I also got involved by ${involvement}. We got the word out with ${medium3}. Rewrite this in the style of ${storytellerProfession} ${storyteller}, in first-person voice. Limit your response to one paragraph of less than 250 words.}`;
+
   const prompt4 = `A cinematic photograph interior 15mm wide angle lens 4k medium view autochrome photo of a ${power} powered factory with ${water} and robots that are ${robots}.`;
 
-  const prompt5 = `A an adorable closeup screenshot from avatar the last airbender of a ${animal1} that can ${animal3}`;
+  const story4 = `We're making great progress on clean energy too. We're using ${power} to power our factories, and our water comes from ${water}. As for the robots, ${robots}. Rewrite this in the style of ${storytellerProfession} ${storyteller}, in first-person voice. Limit your response to one paragraph of less than 250 words.}`;
+
+  const prompt5 = `An adorable closeup screenshot from avatar the last airbender of a ${animal1} that can ${animal3}`;
+
+  const story5 = `The ${animal1} love it because ${animal2}, so now they can ${animal3}. Rewrite this in the style of ${storytellerProfession} ${storyteller}, in first-person voice. Limit your response to one paragraph of less than 250 words.`;
 
   const prompt6 = `A James Beard award winning photo of ${food} modernist cuisine on a table at ${market} in cinematic lighting.`;
 
+  const story6 = `But on to my favorite topic, food. My favorite place to go is ${market} because ${market2}. The weirdest food I've tried is ${food}, which you make by ${preparation}. Rewrite this in the style of ${storytellerProfession} ${storyteller}, in first-person voice. Limit your response to one paragraph of less than 250 words.`;
+
   const prompt7 = `A film still from ${media} of ${future}.`;
 
-  // const prompts = [prompt7];
+  const story7 = `When I think about the future, the thing I most hope for is ${future}. We can make it happen if ${factor1}, ${factor2}, and ${factor3}. Rewrite this as the conclusion to a story, in the style of ${storytellerProfession} ${storyteller}, in first-person voice. Limit your response to one paragraph of less than 250 words.}`;
+
   const prompts = [
     prompt1,
     prompt2,
@@ -73,6 +93,7 @@ router.post("/generate", async (req, res) => {
     prompt6,
     prompt7,
   ];
+  // const prompts = [prompt7];
   const responses = [];
 
   for (const prompt of prompts) {
@@ -92,9 +113,21 @@ router.post("/generate", async (req, res) => {
     }
     imageGroups.push(imageArray);
   }
+  const stories = [story1, story2, story3, story4, story5, story6, story7];
+  // const stories = [story7];
+  const storyCompletions = [];
+
+  for (const story of stories) {
+    const completion = await openai.createChatCompletion({
+      model: "gpt-3.5-turbo",
+      messages: [{ role: "user", content: story }],
+    });
+    storyCompletions.push(completion.data.choices[0].message.content);
+  }
 
   return res.json({
     imageGroups,
+    storyCompletions,
     message: "success",
   });
 

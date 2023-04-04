@@ -29,12 +29,22 @@ const createImageGroups = (imageGroups) => {
   });
 };
 
+const createStories = (stories) => {
+  stories.forEach((story, index) => {
+    // const storyEl = document.createElement("p");
+    // storyEl.innerHTML = story;
+    // document.getElementById(`output-story${index}`).appendChild(storyEl);
+    document.getElementById(`output-story${index}`).innerText = story;
+  });
+};
+
 const handleFormSubmit = (e) => {
   e.preventDefault();
   const form = document.getElementById("form");
   const formData = new URLSearchParams(new FormData(form));
   // console.log(formData);
-  document.getElementById("status").innerHTML = "Generating...";
+  document.getElementById("status").innerHTML =
+    "Generating the future takes a while. Please be patient...";
 
   fetch("api/generate", {
     method: "POST",
@@ -49,30 +59,8 @@ const handleFormSubmit = (e) => {
         hideForm(true);
         // console.log(data);
         document.getElementById("status").innerHTML = data.message;
-        //create an image element with a src of data.image_url0
         const imageGroups = createImageGroups(data.imageGroups);
-        // const image1El0 = document.createElement("img");
-        // image1El0.src = data.image1_url0;
-        // document.getElementById("output-image1").appendChild(image1El0);
-        // const image1El1 = document.createElement("img");
-        // image1El1.src = data.image1_url1;
-        // document.getElementById("output-image1").appendChild(image1El1);
-        // const image1El2 = document.createElement("img");
-        // image1El2.src = data.image1_url2;
-        // document.getElementById("output-image1").appendChild(image1El2);
-        // const image1El3 = document.createElement("img");
-        // image1El3.src = data.image1_url3;
-        // document.getElementById("output-image1").appendChild(image1El3);
-
-        // const image1Array = [image1El0, image1El1, image1El2, image1El3];
-        // for (img of image1Array) {
-        //   img.addEventListener("click", (e) => {
-        //     image1Array.forEach((img1) => {
-        //       img1.classList.toggle("hidden", true);
-        //       e.currentTarget.classList.toggle("hidden", false);
-        //     });
-        //   });
-        // }
+        const stories = createStories(data.storyCompletions);
       }
     })
     .catch((error) => {
