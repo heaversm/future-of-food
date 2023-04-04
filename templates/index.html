@@ -12,6 +12,17 @@
     <h1>The Future of Food 2040</h1>
     <p class="intro">Imagine it is the year 2040, and the world's food system has vastly improved to become more sustainable and adapt to our changing climate. Imagine your place in that future - where you are, your living situation, your community. How society, technology, and even food itself, has changed.</p>
     <p class="instructions">Answer the following questions to create and visualize your 2040 Future of Food.</p>
+    <nav id="form-group-nav">
+      <button class="form-group-button active" data-id="0">1</button>
+      <button class="form-group-button" data-id="1">2</button>
+      <button class="form-group-button" data-id="2">3</button>
+      <button class="form-group-button" data-id="3">4</button>
+      <button class="form-group-button" data-id="4">5</button>
+      <button class="form-group-button" data-id="5">6</button>
+      <button class="form-group-button" data-id="6">7</button>
+      <button class="form-group-button" data-id="7">8</button>
+      <button class="form-group-button" data-id="8">9</button>
+    </nav>
     <section id="section-form">
       <form id="form">
         <div class="form-group" data-id="0">
@@ -25,8 +36,9 @@
           <input type="text" id="location" name="location">
           <label for="occupation">working as a...</label>
           <input type="text" id="occupation" name="occupation">
+          <button class="next">Next</button>
         </div>
-        <div class="form-group" data-id="1">
+        <div class="form-group hidden" data-id="1">
           <label for="change">The biggest change is...</label>
           <input type="text" id="change" name="change">
           <label for="society">In order to make change happen, the most important thing society did as a whole was to...</label>
@@ -44,8 +56,9 @@
           </select>
           <label for="artist0">and the artist would be...</label>
           <input type="text" id="artist0" name="artist0">
+          <button class="next">Next</button>
         </div>
-        <div class="form-group" data-id="2">
+        <div class="form-group hidden" data-id="2">
           <label for="community">The biggest change in your community is...</label>
           <input type="text" id="community" name="community">
           <label for="politics">The biggest change in politics is...</label>
@@ -60,8 +73,9 @@
           <input type="text" name="color01" id="color1">
           <label for="color02">and...</label>
           <input type="text" name="color02" id="color2">
+          <button class="next">Next</button>
         </div>
-        <div class="form-group" data-id="3">
+        <div class="form-group hidden" data-id="3">
           <label for="personal">One thing you had to let go of was...</label>
           <input type="text" id="personal" name="personal">
           <label for="involvement">You got involved by...</label>
@@ -72,26 +86,29 @@
             <option value="wheat pasted on flyers">wheat pasted flyers</option>
             <option value="advertised on a giant billboard">a giant billboard</option>
             <option value="logo tattooed on skin in closeup">symbolic tattoos</option>
-          </select>
+          </select><br/>
+          <button class="next">Next</button>
         </div>
 
-        <div class="form-group" data-id="4">
+        <div class="form-group hidden" data-id="4">
           <label for="water">In this future society, water comes from...</label>
           <input type="text" id="water" name="water">
           <label for="power">Power comes from...</label>
           <input type="text" id="power" name="power">
           <label for="robots">and robots are...</label>
           <input type="text" id="robots" name="robots">
+          <button class="next">Next</button>
         </div>
-        <div class="form-group" data-id="5">
+        <div class="form-group hidden" data-id="5">
           <label for="animal1">An animal group that has benefited is the ...</label>
           <input type="text" id="animal1" name="animal1">
           <label for="animal2">because...</label>
           <input type="text" id="animal2" name="animal2">
           <label for="animal3">so now they can...</label>
           <input type="text" id="animal3" name="animal3">
+          <button class="next">Next</button>
         </div>
-        <div class="form-group">
+        <div class="form-group hidden" data-id="6">
           <label for="market">Your favorite place to go for food is...</label>
           <input type="text" id="market" name="market">
           <label for="market2">because...</label>
@@ -100,8 +117,9 @@
           <input type="text" id="food" name="food">
           <label for="preparation">which you make by...</label>
           <input type="text" id="preparation" name="preparation">
+          <button class="next">Next</button>
         </div>
-        <div class="form-group">
+        <div class="form-group hidden" data-id="7">
           <label for="future">Something you're looking forward to in the next 20 years is...</label>
           <input type="text" id="future" name="future">
           <p>which will happen through three key factors:</p>
@@ -113,15 +131,14 @@
           <input type="text" id="factor3" name="factor3">
           <label for="media">The a movie, tv show, comic book, or artwork that best captures this feeling of this future is...</label>
           <input type="text" name="media" id="media">
+          <button class="next">Next</button>
         </div>
-        <div class="form-group">
+        <div class="form-group hidden" data-id="8">
           <label for="storyteller">If a famous person could tell the story of your future, it would be...</label>
           <input type="text" id="storyteller" name="storyteller">
           <label for="storytellerProfession">who works as a ...</label>
           <input type="text" id="storytellerProfession" name="storytellerProfession">
-        </div>
-        <div class="form-group">
-         <button type="submit" id="submit">Submit</button>
+          <button type="submit" id="submit">Submit</button>
         </div>
         <div class="form-group">
           <p id="status"></p>
