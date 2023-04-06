@@ -8,8 +8,6 @@ import dotenv from "dotenv";
 
 dotenv.config({ path: "./config/.env" });
 
-console.log(process.env.OPENAI_API_KEY, "openAI");
-
 const openAiConfiguration = new Configuration({
   apiKey: process.env.OPENAI_API_KEY,
 });
@@ -20,18 +18,9 @@ const router = express.Router();
 let storyteller, storytellerProfession, ethnicity, gender, occupation, location;
 
 router.post("/generate", async (req, res) => {
-  console.log(req.body);
-  console.log(
-    ethnicity,
-    gender,
-    occupation,
-    location,
-    storytellerProfession,
-    storyteller
-  );
+  // console.log(req.body);
 
   const formID = parseInt(req.body.formID);
-  console.log(formID);
   let prompt, story;
   if (formID === 0) {
     const { change, style0, artist0 } = req.body;
@@ -110,9 +99,6 @@ router.post("/generate", async (req, res) => {
     formID,
     message: "Success",
   });
-
-  //console.log(req.body);
-  //return res.json(req.body);
 });
 
 export default router;
