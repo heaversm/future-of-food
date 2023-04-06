@@ -1,6 +1,5 @@
 const init = () => {
   addEventListeners();
-  console.log("init");
   //fetchOpenAI();
 };
 
@@ -51,7 +50,6 @@ const gotoNextSection = (currentID) => {
   const doSubmit = currentSection.dataset.submit === "false" ? false : true;
   if (doSubmit) {
     const curForm = currentSection.closest("form");
-    console.log(curForm);
     handleFormSubmit(curForm);
   }
 };
@@ -107,14 +105,15 @@ const createStory = (story, index) => {
 
 const handleFormSubmit = (form, isFinal = false) => {
   //const form = document.getElementById("form");
-  console.log(form);
   const formData = new FormData(form);
   const formID = form.dataset.id;
   formData.append("formID", formID);
   const formBody = new URLSearchParams(formData);
 
-  document.getElementById("status").innerHTML =
-    "Generating the future takes a while. Please be patient...";
+  if (isFinal) {
+    document.getElementById("status").innerHTML =
+      "Generating the future takes a while. Please be patient...";
+  }
 
   fetch("api/generate", {
     method: "POST",
@@ -128,8 +127,10 @@ const handleFormSubmit = (form, isFinal = false) => {
       } else {
         //hideForm(true);
         console.log(data);
-        const { imageArray, storyResponse, formID, message } = data;
-        document.getElementById("status").innerHTML = message;
+        // const { imageArray, storyResponse, formID, message } = data;
+        if (isFinal) {
+          document.getElementById("status").innerHTML = message;
+        }
         const imageGroup = createImageGroup(imageArray, formID);
         const story = createStory(storyResponse, formID);
         if (isFinal) {

@@ -84,12 +84,6 @@ router.post("/generate", async (req, res) => {
     prompt = `A James Beard award winning photo of ${food} modernist cuisine on a table at ${market} in cinematic lighting.`;
 
     story = `But on to my favorite topic, food. My favorite place to go is ${market} because ${market2}. The weirdest food I've tried is ${food}, which you make by ${preparation}. Rewrite this in the style of ${storytellerProfession} ${storyteller}, in first-person voice. Limit your response to one paragraph of less than 250 words.`;
-  } else if (formID === 6) {
-    const { media, future, factor1, factor2, factor3 } = req.body;
-
-    prompt = `An inspiring cinematic movie photograph from ${media} of ${future} .`;
-
-    story = `When I think about the future, the thing I most hope for is ${future}. We can make it happen if ${factor1}, ${factor2}, and ${factor3}. Rewrite this as the conclusion to a story, in the style of ${storytellerProfession} ${storyteller}, in first-person voice. Limit your response to one paragraph of less than 250 words.}`;
   }
 
   const response = await openai.createImage({
@@ -114,7 +108,7 @@ router.post("/generate", async (req, res) => {
     imageArray,
     storyResponse,
     formID,
-    message: "success",
+    message: "Success",
   });
 
   //console.log(req.body);

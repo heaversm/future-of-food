@@ -6,13 +6,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Future of Food 2040</title>
   <link rel="stylesheet" href="styles/main.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet"> 
 </head>
 <body>
   <main>
     <section id="section-intro" class="text-center">
       <h1>The Future of Food 2040</h1>
-      <p class="intro">Imagine it is the year 2040, and the world's food system has vastly improved to become more sustainable and adapt to our changing climate. Imagine your place in that future - where you are, your living situation, your community. How society, technology, and even food itself, has changed.</p>
-      <p class="instructions">Answer the following questions to create and visualize your 2040 Future of Food.</p>
+      <p class="instructions">Imagine it is the year 2040, and the world's food system has vastly improved to become more sustainable and adapt to our changing climate.</p>
+      <p class="instructions">Answer the following questions. The answers you provide will be used to generate an illustrated story about the Future of Food. As you add responses, they will be submitted to the system to be generated.</p>
     </section>
     
     <section id="section-form">
@@ -24,7 +26,6 @@
         <button class="form-group-button" data-id="4">5</button>
         <button class="form-group-button" data-id="5">6</button>
         <button class="form-group-button" data-id="6">7</button>
-        <button class="form-group-button" data-id="7">8</button>
       </nav>
       <form class="prompt-form" data-id="0">
         <div class="form-group" data-id="0" data-submit="false">
@@ -35,7 +36,7 @@
             <option value="non-binary">Non-binary</option>
           </select>
           <label for="ethnicity">and your ethnicity is...</label>
-          <input type="text" id="ethnicity" name="ethnicity" placeholder="the AI seems to always choose white people...">
+          <input type="text" id="ethnicity" name="ethnicity" placeholder="the AI otherwise leans toward depicting white people">
           <label for="location">You are in...</label>
           <input type="text" id="location" name="location" placeholder="location">
           <label for="occupation">working as a...</label>
@@ -49,11 +50,11 @@
         <div class="form-group hidden" data-id="1">
           <label for="change">The biggest change is...</label>
           <input type="text" id="change" name="change" placeholder="a positive change">
-          <label for="society">In order to make change happen, the most important thing society did as a whole was to...</label>
+          <label for="society">In order to make change happen, the most important thing society has done is to...</label>
           <input type="text" id="society" name="society"> 
           <label for="society2">instead of</label> 
           <input type="text" id="society2" name="society2">
-          <label for="style0">If this vision of the future were depicted by an artist, the style would be</label>
+          <label for="style0">The art style that best depicts this future is...</label>
           <select name="style0" id="style">
             <option value="Art Deco">Art Deco</option>
             <option value="Street Art">Street Art</option>
@@ -65,7 +66,7 @@
             <option value="Claymation">Claymation</option>
             <option value="Ballpoint-Pen Art">Ballpoint Pen</option>
           </select>
-          <label for="artist0">and the artist would be...</label>
+          <label for="artist0">and the artist is...</label>
           <input type="text" id="artist0" name="artist0" placeholder="artist name">
           <button class="next">Next</button>
         </div>
@@ -83,25 +84,25 @@
           <label for="architecturalStyle0">the architectural style in the community is...</label>
           <input type="text" name="architecturalStyle0" id="architecturalStyle0" placeholder="what do the buildings look like">
           <label for="color01">and the dominant colors are...</label>
-          <input type="text" name="color01" id="color1">
+          <input type="text" name="color01" id="color1" placeholder="color 1">
           <label for="color02">and...</label>
-          <input type="text" name="color02" id="color2">
+          <input type="text" name="color02" id="color2" placeholder="color 2">
           <button class="next">Next</button>
         </div>
       </form>
       <form class="prompt-form" data-id="2">
         <div class="form-group hidden" data-id="3">
-          <label for="personal">One thing you had to let go of was...</label>
-          <input type="text" id="personal" name="personal">
-          <label for="involvement">You got involved by...</label>
-          <input type="text" id="involvement" name="involvement">
-          <label for="medium3">If this were a grass roots movement, you'd get the message out with</label>
+          <label for="personal">One thing you've let go of is...</label>
+          <input type="text" id="personal" name="personal" placeholder="how has your own behavior changed">
+          <label for="involvement">You get involved by...</label>
+          <input type="text" id="involvement" name="involvement" placeholder="how are you making a difference?">
+          <label for="medium3">In order to get the word out, you spread the message out by...</label>
           <select name="medium3" id="medium3">
-            <option value="talking to other people in the community">word of mouth</option>
             <option value="mural spray painted on a wall">a graffitied wall</option>
             <option value="wheat pasted on flyers">wheat pasted flyers</option>
             <option value="advertised on a giant billboard">a giant billboard</option>
             <option value="logo tattooed on skin in closeup">symbolic tattoos</option>
+            <option value="talking to other people in the community">word of mouth</option>
           </select><br/>
           <button class="next">Next</button>
         </div>
@@ -109,55 +110,40 @@
       <form class="prompt-form" data-id="3">
         <div class="form-group hidden" data-id="4">
           <label for="water">In this future society, water comes from...</label>
-          <input type="text" id="water" name="water">
+          <input type="text" id="water" name="water" placeholder="an innovation in water">
           <label for="power">Power comes from...</label>
-          <input type="text" id="power" name="power">
+          <input type="text" id="power" name="power" placeholder="an innovation in power">
           <label for="robots">and robots are...</label>
-          <input type="text" id="robots" name="robots">
+          <input type="text" id="robots" name="robots" placeholder="what are the robots doing?">
           <button class="next">Next</button>
         </div>
       </form>
       <form class="prompt-form" data-id="4">
         <div class="form-group hidden" data-id="5">
           <label for="animal1">An animal group that has benefited is the ...</label>
-          <input type="text" id="animal1" name="animal1">
+          <input type="text" id="animal1" name="animal1" placeholder="name of animal">
           <label for="animal2">because...</label>
-          <input type="text" id="animal2" name="animal2">
+          <input type="text" id="animal2" name="animal2" placeholder="why they benefitted">
           <label for="animal3">so now they can...</label>
-          <input type="text" id="animal3" name="animal3">
+          <input type="text" id="animal3" name="animal3" placeholder="what this enables">
           <button class="next">Next</button>
         </div>
       </form>
       <form class="prompt-form" data-id="5">
         <div class="form-group hidden" data-id="6">
           <label for="market">Your favorite place to go for food is...</label>
-          <input type="text" id="market" name="market">
+          <input type="text" id="market" name="market" placeholder="location">
           <label for="market2">because...</label>
           <input type="text" id="market2" name="market2">
           <label for="food">The weirdest food you've tried is...</label>
           <input type="text" id="food" name="food">
           <label for="preparation">which you make by...</label>
-          <input type="text" id="preparation" name="preparation">
-          <button class="next">Next</button>
-        </div>
-      </form>
-      <form class="prompt-form" data-id="6">
-        <div class="form-group hidden" data-id="7">
-          <label for="future">Something you're looking forward to in the next 20 years is...</label>
-          <input type="text" id="future" name="future">
-          <p>which will happen through three key factors:</p>
-          <label for="factor1">1:</label>
-          <input type="text" id="factor1" name="factor1">
-          <label for="factor2">2:</label>
-          <input type="text" id="factor2" name="factor2">
-          <label for="factor3">3:</label>
-          <input type="text" id="factor3" name="factor3">
-          <label for="media">The movie, tv show, comic book, or artwork that best captures this feeling of this future is...</label>
-          <input type="text" name="media" id="media">
+          <input type="text" id="preparation" name="preparation" placeholder="preparation">
           <button type="submit" id="submit">Submit</button>
         </div>
       </form>
-      <div class="form-group">
+      </form>
+      <div class="status-group">
         <p id="status"></p>
       </div>
     </section>
@@ -171,7 +157,6 @@
         </div>
       </div>
       <div class="output-group">
-        
         <p class="instructions">Select an image:</p>
         <div class="output-container">
           <div class="output-image-container" id="output-image1"></div>
@@ -208,14 +193,6 @@
         <div class="output-container">
           <div class="output-image-container" id="output-image5"></div>
           <div class="output-story-container" id="output-story5"></div>
-        </div>
-      </div>
-      <div class="output-group">
-        
-        <p class="instructions">Select an image:</p>
-        <div class="output-container">
-          <div class="output-image-container" id="output-image6"></div>
-          <div class="output-story-container" id="output-story6"></div>
         </div>
       </div>
       <div class="output-container text-center">
