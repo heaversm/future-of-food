@@ -127,6 +127,8 @@ const handleFormSubmit = (form, isFinal = false) => {
       } else {
         //hideForm(true);
         // console.log(data);
+        const { imageArray, storyResponse, formID, message } = data;
+
         if (isFinal) {
           document.getElementById("status").innerHTML = message;
         }
